@@ -17,7 +17,11 @@ public class DataQueryServiceImpl implements DataQueryService {
 
 	public void save (Item item) throws Exception {
 		if (store.containsKey(item.getId())) {
-			System.out.println("ID should be unique, override the store for the given id");
+			if (store.get(item.getId()).equals(item)) {
+				System.out.println("Do nothing, the item already exist for the given id");
+			} else {
+				System.out.println("ID should be unique, override the store for the given id");
+			}
 		}
 		store.put(item.getId(), item);
 	}

@@ -5,25 +5,26 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/*
+	Set  = [a,b,c]
+	power_set_size = pow(2, 3) = 8
+	Run for binary counter = 000 to 111
+
+	Value of Counter            Subset
+		000                    -> Empty set
+		001                    -> a
+		010                    -> b
+		011                    -> ab
+		100                    -> c
+		101                    -> ac
+		110                    -> bc
+		111                    -> abc
+ */
+
+// O(2^n)
 public class PowerSet {
 
-	/*
-	Set  = [a,b,c]
-power_set_size = pow(2, 3) = 8
-Run for binary counter = 000 to 111
-
-Value of Counter            Subset
-    000                    -> Empty set
-    001                    -> a
-    010                    -> b
-    011                    -> ab
-    100                    -> c
-    101                    -> ac
-    110                    -> bc
-    111                    -> abc
-	 */
-
-	static void printPowerSet (char[] set, int setSize) {
+	public static void printPowerSet (char[] set, int setSize) {
 		long powSetSize = (long) Math.pow(2, setSize);
 
 		int counter, j;
@@ -39,8 +40,8 @@ Value of Counter            Subset
 		}
 	}
 
-	static <T> Set<Set<T>> powerSet(Set<T> originalSet) {
-		Set<Set<T>> sets = new HashSet<Set<T>>();
+	public static <T> Set<Set<T>> powerSet(Set<T> originalSet) {
+		Set<Set<T>> sets = new HashSet<>();
 		if (originalSet.isEmpty()) {
 			sets.add(new HashSet<T>());
 			return sets;
